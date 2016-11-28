@@ -9,7 +9,8 @@ if [ -d "~/.ethereum/devchain/$(hostname)" ]; then
 else
  echo "existe pas"
  mkdir ~/.ethereum/devchain/$(hostname)
-
+ mkdir ~/.ethereum/devchain/$(hostname)/keystore
+ cp ~/.ethereum/devchain/keystore/* ~/.ethereum/devchain/$(hostname)/keystore/
 fi
 /usr/bin/geth --datadir=~/.ethereum/devchain/$(hostname) --ipcpath "~/.ethereum/devchain/geth.ipc"  init "/root/files/genesis.json"
 sleep 3
